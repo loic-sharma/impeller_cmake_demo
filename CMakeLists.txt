@@ -58,19 +58,8 @@ execute_process(COMMAND install_name_tool -id "@rpath/libimpeller.dylib" libimpe
 endif(APPLE)
 
 # ------------------------------------------------------------------------------
-# --- Setup GLFW ---------------------------------------------------------------
-# ------------------------------------------------------------------------------
-
-FetchContent_Declare(
-  glfw
-  URL https://github.com/glfw/glfw/archive/refs/tags/3.4.tar.gz
-  EXCLUDE_FROM_ALL
-)
-FetchContent_MakeAvailable(glfw)
-
-# ------------------------------------------------------------------------------
 # --- Setup Project ------------------------------------------------------------
 # ------------------------------------------------------------------------------
 
 add_executable(impeller_demo demo.c)
-target_link_libraries(impeller_demo glfw impeller)
+target_link_libraries(impeller_demo impeller)
